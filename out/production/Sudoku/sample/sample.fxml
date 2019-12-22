@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<FlowPane columnHalignment="CENTER" prefHeight="500.0" prefWidth="450.0" prefWrapLength="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <VBox alignment="CENTER" prefWidth="450.0">
+         <children>
+            <Label fx:id="timeLabel" prefHeight="17.0" text="Elapsed Time:    0 sn">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children></VBox>
+      <GridPane fx:id="gridPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="450.0" prefWidth="450.0">
+         <columnConstraints>
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="450.0" spacing="10.0">
+         <children>
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#onPressedStartButton" text="Start" />
+            <Button fx:id="stopButton" mnemonicParsing="false" onAction="#onPressedStopButton" text="Stop" />
+            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#onPressedResetButton" text="Reset" />
+         </children>
+      </HBox>
+   </children>
+</FlowPane>
