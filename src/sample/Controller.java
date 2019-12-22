@@ -42,8 +42,17 @@ public class Controller {
                 tfs[c].setPrefWidth(50);
                 tfs[c].setPrefHeight(50);
                 tfs[c].setText(board.getValue(i, j) + "");
-                //if (board.getValue(i, j) != 0)
                 tfs[c].setDisable(true);
+                if (i == 2 || i == 5) {
+                    tfs[c].setStyle("-fx-border-width: 1 1 3 1;");
+                }
+                if (j == 2 || j == 5) {
+                    tfs[c].setStyle("-fx-border-width: 1 3 1 1;");
+                }
+                if ((i == 2 || i == 5) && (j == 2 || j == 5)) {
+                    tfs[c].setStyle("-fx-border-width: 1 3 3 1;");
+                }
+
                 gridPane.add(tfs[c], j, i);
                 int finalI = i;
                 int finalJ = j;
@@ -77,6 +86,8 @@ public class Controller {
                 c++;
             }
         }
+
+
     }
 
     public void onPressedStartButton() {
