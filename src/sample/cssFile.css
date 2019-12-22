@@ -1,9 +1,14 @@
-.text-field{
+.text-field {
     -fx-border-width: 1px;
     -fx-border-color: #000;
     -fx-border-style: solid;
 }
-.button{
+
+.text-field:disabled {
+    -fx-opacity: 1.0;
+}
+
+.button {
     -fx-pref-width: 100;
     -fx-pref-height: 40;
     -fx-font-size: 18;

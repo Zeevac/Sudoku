@@ -27,6 +27,8 @@ public class Controller {
     @FXML
     Button startButton;
     @FXML
+    Button stopButton;
+    @FXML
     Label timeLabel;
     private final IntegerProperty timeSeconds = new SimpleIntegerProperty(0);
     private Timeline timeline;
@@ -43,6 +45,11 @@ public class Controller {
                 tfs[c].setPrefHeight(50);
                 tfs[c].setText(board.getValue(i, j) + "");
                 tfs[c].setDisable(true);
+
+                if (board.getValue(i, j) != 0) {
+                    tfs[c].setStyle("-fx-background-color: #ebe6e6");
+                }
+
                 if (i == 2 || i == 5) {
                     tfs[c].setStyle("-fx-border-width: 1 1 3 1;");
                 }
@@ -52,7 +59,6 @@ public class Controller {
                 if ((i == 2 || i == 5) && (j == 2 || j == 5)) {
                     tfs[c].setStyle("-fx-border-width: 1 3 3 1;");
                 }
-
                 gridPane.add(tfs[c], j, i);
                 int finalI = i;
                 int finalJ = j;
@@ -64,22 +70,13 @@ public class Controller {
                             int a = Integer.parseInt(newValue);
                             boolean b = board.setValue(finalI, finalJ, a);
                             if (!b) {
-                                Alert alert = new Alert(Alert.AlertType.ERROR);
-                                alert.setTitle("Error");
-                                alert.setHeaderText("Not a valid move.");
-                                alert.show();
+                                showAlert("Error", "Not a valid move.", Alert.AlertType.ERROR);
                             }
                         } else {
-                            Alert alert = new Alert(Alert.AlertType.ERROR);
-                            alert.setTitle("Error");
-                            alert.setHeaderText("Invalid input.");
-                            alert.show();
+                            showAlert("Error", "Invalid input.", Alert.AlertType.ERROR);
                         }
                         if (board.isGameFinished() && board.isBoardCorrect()) {
-                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                            alert.setTitle("Solved");
-                            alert.setHeaderText("Congratulations. You solved the sudoku.");
-                            alert.show();
+                            showAlert("Solved", "Congratulations. You solved the sudoku.", Alert.AlertType.INFORMATION);
                         }
                     }
                 });
@@ -91,27 +88,29 @@ public class Controller {
     }
 
     public void onPressedStartButton() {
+        stopButton.setDisable(false);
         activateTextFields();
         startButton.setDisable(true); // prevent starting multiple times
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), evt -> updateTime()));
         timeline.setCycleCount(Animation.INDEFINITE); // repeat over and over again
         if (timeSeconds.get() != 0) {
         }
-
         timeline.play();
     }
 
     private void updateTime() {
-        // increment seconds
         int seconds = timeSeconds.get();
         timeSeconds.set(seconds + 1);
         timeLabel.setText("Elapsed Time:   " + timeSeconds.get() + " sn");
     }
 
     public void onPressedStopButton() {
-        timeline.stop();
+        if (timeline != null) {
+            timeline.stop();
+        }
         passivateTextFields();
         startButton.setDisable(false);
+        stopButton.setDisable(true);
     }
 
     public void onPressedResetButton() {
@@ -132,4 +131,12 @@ public class Controller {
                 tfs[i].setDisable(true);
         }
     }
+
+    public void showAlert(String title, String message, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(message);
+        alert.show();
+    }
 }
+

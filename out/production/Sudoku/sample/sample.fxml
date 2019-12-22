@@ -25,7 +25,7 @@
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="450.0" spacing="10.0">
          <children>
             <Button fx:id="startButton" mnemonicParsing="false" onAction="#onPressedStartButton" text="Start" />
-            <Button fx:id="stopButton" mnemonicParsing="false" onAction="#onPressedStopButton" text="Stop" />
+            <Button fx:id="stopButton" disable="true" mnemonicParsing="false" onAction="#onPressedStopButton" text="Stop" />
             <Button fx:id="resetButton" mnemonicParsing="false" onAction="#onPressedResetButton" text="Reset" />
          </children>
       </HBox>
