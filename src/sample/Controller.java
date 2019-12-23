@@ -45,20 +45,23 @@ public class Controller {
                 tfs[c].setPrefHeight(50);
                 tfs[c].setText(board.getValue(i, j) + "");
                 tfs[c].setDisable(true);
-
+                String style = "";
                 if (board.getValue(i, j) != 0) {
-                    tfs[c].setStyle("-fx-background-color: #ebe6e6");
+                    style += "-fx-background-color: #ebe6e6;";
                 }
 
                 if (i == 2 || i == 5) {
-                    tfs[c].setStyle("-fx-border-width: 1 1 3 1;");
+
+                    style += "-fx-border-width: 1 1 3 1;";
                 }
                 if (j == 2 || j == 5) {
-                    tfs[c].setStyle("-fx-border-width: 1 3 1 1;");
+
+                    style += "-fx-border-width: 1 3 1 1;";
                 }
                 if ((i == 2 || i == 5) && (j == 2 || j == 5)) {
-                    tfs[c].setStyle("-fx-border-width: 1 3 3 1;");
+                    style += "-fx-border-width: 1 3 3 1;";
                 }
+                tfs[c].setStyle(style);
                 gridPane.add(tfs[c], j, i);
                 int finalI = i;
                 int finalJ = j;
