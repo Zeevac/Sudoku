@@ -3,7 +3,6 @@ package sample;
 public class Board {
     private int[][] board;
     private int[][] answer;
-    //private Map<int[][],int[][]> map;
 
     public Board() {
         board = new int[][]{
@@ -17,18 +16,6 @@ public class Board {
                 {4, 0, 2, 0, 0, 9, 0, 0, 5},
                 {0, 9, 0, 0, 7, 0, 4, 0, 2}};
 
-
-       /* int[][] g1 = new int[][]{
-                {5, 4, 0, 0, 2, 0, 8, 0, 6},
-                {0, 1, 9, 0, 0, 7, 0, 0, 3},
-                {0, 0, 0, 3, 0, 0, 2, 1, 0},
-                {9, 0, 0, 4, 0, 5, 0, 2, 0},
-                {0, 0, 1, 0, 0, 0, 6, 0, 4},
-                {6, 0, 4, 0, 3, 2, 0, 8, 0},
-                {0, 6, 0, 0, 0, 0, 1, 9, 0},
-                {4, 0, 2, 0, 0, 9, 0, 0, 5},
-                {0, 9, 0, 0, 7, 0, 4, 0, 2}};
-        */
         answer = new int[][]{
                 {5, 4, 3, 9, 2, 1, 8, 7, 6},
                 {2, 1, 9, 6, 8, 7, 5, 4, 3},
@@ -46,7 +33,7 @@ public class Board {
         return board;
     }
 
-    public int[][] getAnswer(){
+    public int[][] getAnswer() {
         return answer;
     }
 
@@ -54,7 +41,7 @@ public class Board {
         return board[row][column];
     }
 
-    public int getAnswerValue(int row,int column){
+    public int getAnswerValue(int row, int column) {
         return answer[row][column];
     }
 
@@ -68,17 +55,7 @@ public class Board {
 
     }
 
-    public void printBoard() {
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                System.out.print(getValue(i, j) + "  ");
-            }
-            System.out.println();
-        }
-    }
-
     public boolean isValid(int row, int column, int value) {
-        //Check the row
         if (value == 0)
             return true;
 
@@ -118,7 +95,7 @@ public class Board {
         return true;
     }
 
-    public boolean isBoardCorrect(){
+    public boolean isBoardCorrect() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (board[i][j] != answer[i][j])

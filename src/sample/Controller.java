@@ -1,6 +1,5 @@
 package sample;
 
-
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -93,9 +92,9 @@ public class Controller {
     public void onPressedStartButton() {
         stopButton.setDisable(false);
         activateTextFields();
-        startButton.setDisable(true); // prevent starting multiple times
+        startButton.setDisable(true);
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), evt -> updateTime()));
-        timeline.setCycleCount(Animation.INDEFINITE); // repeat over and over again
+        timeline.setCycleCount(Animation.INDEFINITE);
         if (timeSeconds.get() != 0) {
         }
         timeline.play();
