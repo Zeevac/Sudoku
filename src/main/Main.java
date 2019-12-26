@@ -1,4 +1,4 @@
-package sample;
+package main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,8 +10,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        root.getStylesheets().add("sample/cssFile.css");
+        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+        root.getStylesheets().add("main/cssFile.css");
         primaryStage.setTitle("Sudoku");
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));

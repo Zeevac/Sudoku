@@ -1,4 +1,4 @@
-package sample;
+package main;
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -103,7 +103,7 @@ public class Controller {
     private void updateTime() {
         int seconds = timeSeconds.get();
         timeSeconds.set(seconds + 1);
-        timeLabel.setText("Elapsed Time:   " + timeSeconds.get() + " sn");
+        timeLabel.setText("Elapsed Time:    " + timeSeconds.get() + " sn");
     }
 
     public void onPressedStopButton() {
