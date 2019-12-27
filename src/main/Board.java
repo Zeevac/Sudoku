@@ -3,8 +3,25 @@ package main;
 public class Board {
     private int[][] board;
     private int[][] answer;
+    private int[][] defaultBoard;
+
+    public int[][] getDefaultBoard() {
+        return defaultBoard;
+    }
 
     public Board() {
+        defaultBoard = new int[][]{
+                {5, 4, 0, 0, 2, 0, 8, 0, 6},
+                {0, 1, 9, 0, 0, 7, 0, 0, 3},
+                {0, 0, 0, 3, 0, 0, 2, 1, 0},
+                {9, 0, 0, 4, 0, 5, 0, 2, 0},
+                {0, 0, 1, 0, 0, 0, 6, 0, 4},
+                {6, 0, 4, 0, 3, 2, 0, 8, 0},
+                {0, 6, 0, 0, 0, 0, 1, 9, 0},
+                {4, 0, 2, 0, 0, 9, 0, 0, 5},
+                {0, 9, 0, 0, 7, 0, 4, 0, 2}};
+
+
         board = new int[][]{
                 {5, 4, 0, 0, 2, 0, 8, 0, 6},
                 {0, 1, 9, 0, 0, 7, 0, 0, 3},
