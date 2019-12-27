@@ -31,7 +31,6 @@ public class Controller {
     Label timeLabel;
     private final IntegerProperty timeSeconds = new SimpleIntegerProperty(0);
     private Timeline timeline;
-    private boolean reset;
 
     public void initialize() throws IOException {
         board = new Board();
@@ -80,6 +79,9 @@ public class Controller {
                         }
                         if (board.isGameFinished() && board.isBoardCorrect()) {
                             showAlert("Solved", "Congratulations. You solved the sudoku.", Alert.AlertType.INFORMATION);
+                            if (timeline != null) {
+                                timeline.stop();
+                            }
                         }
                     }
                 });
@@ -119,7 +121,6 @@ public class Controller {
     public void onPressedResetButton() {
         timeSeconds.set(0);
         timeLabel.setText("Elapsed Time:    0 sn");
-        reset = true;
         int c = 0;
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
